@@ -1,1 +1,0 @@
-var JSJoda = module.exports;

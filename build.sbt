@@ -30,10 +30,6 @@ def BaseProject(name: String): Project =
           </developer>
         </developers>,
       pomIncludeRepository := { _ => false },
-      libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.6",
-      libraryDependencies += "com.lihaoyi" %%% "utest" % "0.7.4" % "test",
-      jsDependencies += ("org.webjars.npm" % "js-joda" % "1.6.2" / "dist/js-joda.js" minified "dist/js-joda.min.js") % "test",
-      jsDependencies += (ProvidedJS / "test.js" dependsOn "dist/js-joda.js") % "test",
       testFrameworks += new TestFramework("utest.runner.Framework")
     )
     .enablePlugins(ScalaJSPlugin)
@@ -57,7 +53,11 @@ lazy val javaTime =
       mappings in(Compile, packageBin) ~= {
         _.filter(!_._2.endsWith(".class"))
       },
-      exportJars := true
+      exportJars := true,
+      libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.6",
+      libraryDependencies += "com.lihaoyi" %%% "utest" % "0.7.4" % "test",
+      jsDependencies += ("org.webjars.npm" % "js-joda" % "1.6.2" / "dist/js-joda.js" minified "dist/js-joda.min.js") % "test",
+      jsDependencies += (ProvidedJS / "test.js" dependsOn "dist/js-joda.js") % "test",
     )
     .dependsOn(facade)
 
