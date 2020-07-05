@@ -14,7 +14,7 @@ env:
     - SCALAJS_VERSION=""
 
 script:
-  - sbt fullOptJS
+  - sbt "test;fullOptJS"
 
 before_cache:
   - rm -fv $HOME/.ivy2/.sbt.ivy.lock
