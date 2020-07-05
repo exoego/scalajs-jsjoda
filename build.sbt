@@ -39,7 +39,7 @@ def BaseProject(name: String): Project =
     .enablePlugins(ScalaJSPlugin)
     .enablePlugins(JSDependenciesPlugin)
 
-lazy val root = (project in file("."))
+lazy val `scalajs-jsjoda` = (project in file("."))
   .settings(
     crossScalaVersions := Nil
   ).aggregate(facade, javaTime)
@@ -63,4 +63,4 @@ lazy val javaTime =
 
 sonatypeProfileName := "com.zoepepper"
 
-packagedArtifacts in root := Map.empty
+packagedArtifacts in `scalajs-jsjoda` := Map.empty
